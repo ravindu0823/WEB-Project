@@ -1,0 +1,62 @@
+body {
+    background-image: url("Images/Rectangle 9.png")
+}
+
+.round {
+    border-radius: 50%;
+    width: 10%;
+    height: 10%;
+    position: relative;
+    left: 30px;
+    top: 30px;
+    border: 3px solid #73AD21;
+}
+
+.round1 {
+    position: relative;
+    left: 30px;
+    top: 30px;
+    height: 9%;
+}
+
+.sports {
+    width: 80%;
+}
+
+.footer {
+    background-color: #1B579F;
+    color: white;
+    padding: 10px;
+}
+
+
+
+.font {
+    font-family: rozha;
+    font-size: 200px;
+    color: #007BFF;
+    position: absolute;
+    top: 50px;
+    left: 100px;
+}
+
+
+
+.button {
+    background-color: #3AB54A;
+    color: white;
+    border-color: #3AB54A;
+    border-radius: 80px;
+    font-size: 24px;
+    padding: 10px 30px;
+    font-family: "roboto slab";
+}
+
+.button1 {
+    background-color: #545E69;
+    color: white;
+    border-radius: 80px;
+    font-size: 24px;
+    padding: 10px 30px;
+    font-family: "roboto slab";
+}
