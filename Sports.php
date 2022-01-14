@@ -7,22 +7,17 @@
     <title>Sports</title>
 </head>
 <body>
-<?php echo("<img src='Images/nsbm_logo_favicon.png' alt='NSBM LOGO' class='round'>") ?>
-
-<?php echo("<img src='Images/Profile.png' alt='NSBM LOGO' class='round1' style='position: absolute; top: 100px; left: 1350px'>") ?>
-
-<table style="position: absolute; top: 100px; left: 300px">
+<table>
     <tr>
+        <td><img src='Images/nsbm_logo_favicon.png' alt='NSBM LOGO' class='round'></td>
         <td><a href="Home.php"><input type='button' value='Home' class="button"></td>
         <td><input type='button' value='News' class="button"></td>
         <td><input type='button' value='About Us' class="button"></td>
         <td><input type='button' value='Contact Us' class="button"></td>
-    </tr>
-</table>
-<table style="position: absolute; top: 100px; left: 1000px">
-    <tr>
+        <td width="300px"></td>
         <td><input type="button" value="Sign In" class="button1"></td>
         <td><input type="button" value="Sign Up" class="button1"></td>
+        <td><img src='Images/Profile.png' alt='NSBM LOGO' class="round1"></td>
     </tr>
 </table>
 
