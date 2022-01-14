@@ -1,22 +1,21 @@
 body {
-    background-image: url("Images/Rectangle 9.png")
+    background-image: url("Images/Rectangle 9.png");
 }
 
 .round {
     border-radius: 50%;
-    width: 10%;
-    height: 10%;
-    position: relative;
-    left: 30px;
-    top: 30px;
+    width: 30%;
+    min-width: 30%;
+    /*height: auto;*/
     border: 3px solid #73AD21;
 }
 
 .round1 {
-    position: relative;
+    /*position: relative;*/
     left: 30px;
     top: 30px;
-    height: 9%;
+    width: 60%;
+    height: auto;
 }
 
 .sports {
@@ -35,9 +34,6 @@ body {
     font-family: rozha;
     font-size: 200px;
     color: #007BFF;
-    position: absolute;
-    top: 50px;
-    left: 100px;
 }
 
 
