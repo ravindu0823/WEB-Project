@@ -1,9 +1,10 @@
 <div class="font" style="text-align: center; font-size: 5rem; padding-bottom: 15px; background-color: #08AEEA;
 background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
 ">
-    <img src="../../public/images/nsbm_logo_favicon.png" alt="" height="120"
-         style="border: 3px solid #73AD21; border-radius: 50%;">
-    <span style="padding-top: 2px; text-shadow: 2px 2px black;">NSBM <span style="color: #02CD22;">SPORTS</span></span>
+    <a href="https://www.nsbm.ac.lk/"><img src="../../public/images/nsbm_logo_favicon.png" alt="" height="120"
+         style="border: 3px solid #73AD21; border-radius: 50%;"></a>
+    <span style="padding-top: 2px; text-shadow: 2px 2px black; font-family: 'rozha one'"><span style="color: #007BFF">NSBM</span> <span
+                style="color: #02CD22;">SPORTS</span></span>
 </div>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -20,6 +21,11 @@ background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
                     <a class="nav-link <?php if ($url == '' || $url == 'home.php') {
                         echo 'active';
                     } ?>" aria-current="page" href="home.php">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <?php if ($url == '' || $url == 'clubs.php') {
+                        echo 'active';
+                    } ?>" aria-current="page" href="clubs.php">Clubs</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?php if ($url == 'news.php') {
