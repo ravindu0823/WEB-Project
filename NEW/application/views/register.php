@@ -11,6 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // PHP form validation
     $student_id = trim($_POST['student_id']);
     $name = trim($_POST['name']);
+    $password = trim($_POST['password']);
+    $confirm_password = trim($_POST['confirm_password']);
     $age = trim($_POST['age']);
     $faculty = trim($_POST['faculty']);
     $email = trim($_POST['email']);
@@ -35,6 +37,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (!preg_match('/^[a-zA-Z ]+$/i', $name)) {
         array_push($errors, 'Provide a valid Name');
+    }
+
+    if (!$password) {
+            array_push($errors, 'Enter a password');
+    }
+
+    if ($password < 6) {
+        array_push($errors, 'The password must contain at least 6 characters');
+    }
+
+    if (!$confirm_password) {
+        array_push($errors, 'Please confirm your password');
+    }
+
+    if ($confirm_password != $password) {
+        array_push($errors, 'Conform password is not valid');
     }
 
     if (!$age) {
@@ -71,6 +89,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         unset($_SESSION['form_validation']['errors']);
 
         // TODO: DB connection
+
+        $server = 'localhost';
+        $username = 'u644581451_ravindu';
+        $pass = 'u644581451_ravindu';
+        $db = 'u644581451_ravindu';
+
+        // Create Connection
+        $conn = new mysqli($server, $username, $pass, $db);
+
+
+        // Check Connection
+        if ($conn->connect_error) {
+            die("Connection failed!!" . $conn->connect_error);
+        } else {
+            echo("Connection Established");
+        }
+
+        // $sql = "INSERT INTO students (student_id, name, age, password, faculty, batch, email, phone, address)";
+
+
+
+        $conn->close();
+
     }
 }
 ?>
@@ -130,6 +171,20 @@ $faculties = [
                                     <span class="input-group-text" id="basic-addon1">Name</span>
                                     <input type="text" name="name" id="name" class="form-control"
                                            placeholder="Full Name" aria-label="Name" min="5" max="100" maxlength="100"
+                                           required>
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Password</span>
+                                    <input type="password" name="password" id="password" class="form-control"
+                                           placeholder="Enter a strong password" aria-label="Password" min="8" max="100" maxlength="100"
+                                           required>
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Confirm Password</span>
+                                    <input type="password" name="confirm_password" id="confirm_password" class="form-control"
+                                           placeholder="Confirm your password" aria-label="Confirm password" min="5" max="100" maxlength="100"
                                            required>
                                 </div>
 
@@ -197,6 +252,18 @@ $faculties = [
 
             if (!document.getElementById('name').value) {
                 errors.push('Enter your Name');
+            }
+
+            if (!document.getElementById('password').value) {
+                errors.push('Enter your password');
+            }
+
+            if (document.getElementById('password').value < 6) {
+                errors.push('The password should contain at least 6 characters');
+            }
+
+            if (document.getElementById('password').value !== document.getElementById('confirm_password').value) {
+                errors.push('Confirm password is not valid!');
             }
 
             if (!document.getElementById('age').value) {
