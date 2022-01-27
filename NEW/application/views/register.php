@@ -2,11 +2,18 @@
 <?php include './layout/navbar.php' ?>
 
 <?php
+session_start();
+unset($_SESSION['form_validation']['errors']);
+unset($_SESSION['form_validation']['success']);
+?>
+
+<?php
 /**
  * Controller
  */
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errors = [];
+    $messages = [];
 
     // PHP form validation
     $student_id = trim($_POST['student_id']);
@@ -15,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $confirm_password = trim($_POST['confirm_password']);
     $age = trim($_POST['age']);
     $faculty = trim($_POST['faculty']);
+    $batch = trim($_POST['batch']);
     $email = trim($_POST['email']);
     $phone = trim($_POST['phone']);
     $address = trim($_POST['address']);
@@ -40,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (!$password) {
-            array_push($errors, 'Enter a password');
+        array_push($errors, 'Enter a password');
     }
 
     if ($password < 6) {
@@ -59,16 +67,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         array_push($errors, 'Please enter your age');
     }
 
-    if (filter_var($age, FILTER_VALIDATE_INT)) {
+    if (!filter_var($age, FILTER_VALIDATE_INT)) {
         array_push($errors, 'Age should be a numeric value');
     }
 
-    if ($age > 2) {
+    if ((int)$age < 18) {
         array_push($errors, 'Enter a valid age');
     }
 
     if (!$faculty) {
         array_push($errors, 'Please select your faculty');
+    }
+
+    if (!$batch) {
+        array_push($errors, 'Please select your batch');
     }
 
     if (!$email) {
@@ -88,30 +100,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Validation successful
         unset($_SESSION['form_validation']['errors']);
 
-        // TODO: DB connection
-
         $server = 'localhost';
         $username = 'u644581451_ravindu';
-        $pass = 'u644581451_ravindu';
+        $pass = 'ravinduD1234';
         $db = 'u644581451_ravindu';
 
-        // Create Connection
+        // Create DB connection
         $conn = new mysqli($server, $username, $pass, $db);
 
-
-        // Check Connection
-        if ($conn->connect_error) {
-            die("Connection failed!!" . $conn->connect_error);
+        // Check connection
+        if (mysqli_connect_error()) {
+            error_log(mysqli_connect_error());
+            array_push($errors, 'DB connection error! Please contact the admin');
+            $_SESSION['form_validation']['errors'] = $errors;
         } else {
-            echo("Connection Established");
+            $sql = 'INSERT INTO students (student_id, name, age, password, faculty, batch, email, phone, address) VALUES ("' . $student_id . '", "' . $name . '", "' . $age . '", "' . $password . '", "' . $faculty . '", "' . $batch . '", "' . $email . '", "' . $phone . '", "' . $address . '")';
+
+            if ($conn->query($sql) === true) {
+                array_push($messages, 'Registration successful! Please login');
+                $_SESSION['form_validation']['success'] = $messages;
+            } else {
+                error_log($sql . ': ' . $conn->error);
+                array_push($errors, 'Registration unsuccessful! Please contact the admin');
+                $_SESSION['form_validation']['errors'] = $errors;
+            }
         }
 
-        // $sql = "INSERT INTO students (student_id, name, age, password, faculty, batch, email, phone, address)";
-
-
-
         $conn->close();
-
+        header('Location: login.php');
     }
 }
 ?>
@@ -129,11 +145,43 @@ $faculties = [
     ],
     [
         'id' => '3',
-        'name' => 'Faculty of Engineering (FOE)',
+        'name' => 'Faculty of Engineering (FOE)'
     ],
     [
         'id' => '4',
-        'name' => 'Faculty of Science (FOS)',
+        'name' => 'Faculty of Science (FOS)'
+    ]
+];
+
+$batches = [
+    [
+        'id' => '20.1',
+        'name' => '20.1'
+    ],
+
+    [
+        'id' => '20.2',
+        'name' => '20.2'
+    ],
+
+    [
+        'id' => '20.3',
+        'name' => '20.3'
+    ],
+
+    [
+        'id' => '21.1',
+        'name' => '21.1'
+    ],
+
+    [
+        'id' => '21.2',
+        'name' => '21.2'
+    ],
+
+    [
+        'id' => '21.3',
+        'name' => '21.3'
     ]
 ];
 ?>
@@ -149,10 +197,18 @@ $faculties = [
                         </div>
                         <div class="col-lg-6 reg-form">
 
-                            <?php if ($_SESSION['form_validation']['errors']) { ?>
+                            <?php if (isset($_SESSION['form_validation']['errors'])) { ?>
                                 <div class="alert bg-danger">
                                     <?php foreach ($_SESSION['form_validation']['errors'] as $error) { ?>
                                         <p><?php echo $error; ?></p>
+                                    <?php } ?>
+                                </div>
+                            <?php } ?>
+
+                            <?php if (isset($_SESSION['form_validation']['success'])) { ?>
+                                <div class="alert bg-success">
+                                    <?php foreach ($_SESSION['form_validation']['success'] as $success) { ?>
+                                        <p><?php echo $success; ?></p>
                                     <?php } ?>
                                 </div>
                             <?php } ?>
@@ -177,14 +233,17 @@ $faculties = [
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1">Password</span>
                                     <input type="password" name="password" id="password" class="form-control"
-                                           placeholder="Enter a strong password" aria-label="Password" min="8" max="100" maxlength="100"
+                                           placeholder="Enter a strong password" aria-label="Password" min="8" max="100"
+                                           maxlength="100"
                                            required>
                                 </div>
 
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1">Confirm Password</span>
-                                    <input type="password" name="confirm_password" id="confirm_password" class="form-control"
-                                           placeholder="Confirm your password" aria-label="Confirm password" min="5" max="100" maxlength="100"
+                                    <input type="password" name="confirm_password" id="confirm_password"
+                                           class="form-control"
+                                           placeholder="Confirm your password" aria-label="Confirm password" min="5"
+                                           max="100" maxlength="100"
                                            required>
                                 </div>
 
@@ -200,6 +259,18 @@ $faculties = [
                                         <option value="">Please select...</option>
                                         <?php for ($i = 0; $i < sizeof($faculties); $i++) { ?>
                                             <option value="<?php echo $faculties[$i]['id']; ?>"><?php echo $faculties[$i]['name']; ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Batch</span>
+                                    <select name="batch" id="batch" class="form-control" title="Batch" required>
+                                        <option value="">Please select...</option>
+                                        <?php for ($i = 0; $i < sizeof($batches); $i++) { ?>
+                                            <option value="<?php echo $batches[$i]['id']; ?>">
+                                                <?php echo $batches[$i]['name']; ?>
+                                            </option>
                                         <?php } ?>
                                     </select>
                                 </div>
@@ -276,6 +347,10 @@ $faculties = [
 
             if (!document.getElementById('faculty').value) {
                 errors.push('Select your Faculty');
+            }
+
+            if (!document.getElementById('batch').value) {
+                errors.push('Select your batch');
             }
 
             if (!document.getElementById('email').value) {
