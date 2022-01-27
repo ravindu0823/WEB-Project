@@ -42,10 +42,11 @@ background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
                         echo 'active';
                     } ?>" href="contact_us.php">Contact Us</a>
                 </li>
+
                 <!-- Drop Down -->
-                <!--<li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="https://www.nsbm.ac.lk/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Clubs
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="#">Action</a></li>
@@ -53,7 +54,7 @@ background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="#">Something else here</a></li>
                     </ul>
-                </li>-->
+                </li>
                 <!-- Disabled Button -->
                 <!--<li class="nav-item">
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
