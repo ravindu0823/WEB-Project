@@ -21,14 +21,14 @@
 
                 <div class="col-lg mt-auto">
                     <a href="badminton.php" style="text-decoration: none">
-                        <img src="../../public/images/sports/Ellipse%203.png" alt="" class="sports">
+                        <img src="../../public/images/sports/Ellipse%203.png" alt="" width="275px">
                         <span class="d-block w-100 fst-italic" style="font-size: 30px;">Cricket Club</span>
                     </a>
                 </div>
 
                 <div class="col-lg mt-auto">
                     <a href="badminton.php" style="text-decoration: none">
-                        <img src="../../public/images/sports/Ellipse%2010.png" alt="" class="sports">
+                        <img src="../../public/images/sports/Ellipse%2010.png" alt="" width="275px">
                         <span class="d-block w-100 fst-italic" style="font-size: 30px;">Rugby Club</span>
                     </a>
                 </div>

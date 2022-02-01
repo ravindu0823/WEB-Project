@@ -10,31 +10,31 @@
                 <div class="row" style="text-align: center;">
                     <div class="col-lg">
                         <a href="badminton.php" style="text-decoration: none;">
-                            <img src="../../public/images/sports/Ellipse%201.png" alt="" class="sports">
+                            <img src="../../public/images/sports/Badminton_logo.png" alt="" style="width: 100%" class="sports">
                             <span class="d-block w-100 fst-italic" style="font-size: 30px;">Badminton</span>
                         </a>
                     </div>
                     <div class="col-lg">
                         <a href="badminton.php" style="text-decoration: none;">
-                            <img src="../../public/images/sports/Ellipse%202.png" alt="" class="sports">
+                            <img src="../../public/images/sports/Basketball_logo.png" alt="" class="sports">
                             <span class="d-block w-100 fst-italic" style="font-size: 30px;">Basketball</span>
                         </a>
                     </div>
-                    <div class="col-lg">
+                    <div class="col-lg mt-auto">
                         <a href="badminton.php" style="text-decoration: none;">
-                            <img src="../../public/images/sports/Ellipse%203.png" alt="" class="sports">
+                            <img src="../../public/images/sports/Ellipse%203.png" alt="" width="275px">
                             <span class="d-block w-100 fst-italic" style="font-size: 30px;">Cricket</span>
                         </a>
                     </div>
                     <div class="col-lg">
                         <a href="badminton.php" style="text-decoration: none;">
-                            <img src="../../public/images/sports/Ellipse%204.png" alt="" class="sports">
+                            <img src="../../public/images/sports/Athletic_logo.png" alt="" class="sports">
                             <span class="d-block w-100 fst-italic" style="font-size: 30px;">Athletics</span>
                         </a>
                     </div>
-                    <div class="col-lg">
+                    <div class="col-lg mt-auto">
                         <a href="badminton.php" style="text-decoration: none;">
-                            <img src="../../public/images/sports/Ellipse%2010.png" alt="" class="sports">
+                            <img src="../../public/images/sports/Ellipse%2010.png" alt="" width="275px">
                             <span class="d-block w-100 fst-italic" style="font-size: 30px;">Rugby</span>
                         </a>
                     </div>
@@ -43,25 +43,25 @@
                 <div class="row mt-5" style="text-align: center;">
                     <div class="col-lg">
                         <a href="badminton.php" style="text-decoration: none;">
-                            <img src="../../public/images/sports/Ellipse%206.png" alt="" class="sports">
+                            <img src="../../public/images/sports/Swimming_logo.png" alt="" class="sports">
                             <span class="d-block w-100 fst-italic" style="font-size: 30px;">Swimming</span>
                         </a>
                     </div>
                     <div class="col-lg">
                         <a href="badminton.php" style="text-decoration: none;">
-                            <img src="../../public/images/sports/Ellipse%207.png" alt="" class="sports">
+                            <img src="../../public/images/sports/tt_logo.png" alt="" class="sports">
                             <span class="d-block w-100 fst-italic" style="font-size: 30px;">Table Tennis</span>
                         </a>
                     </div>
                     <div class="col-lg">
                         <a href="badminton.php" style="text-decoration: none;">
-                            <img src="../../public/images/sports/Ellipse%208.png" alt="" class="sports">
+                            <img src="../../public/images/sports/netball_logo.png" alt="" class="sports">
                             <span class="d-block w-100 fst-italic" style="font-size: 30px;">Net Ball</span>
                         </a>
                     </div>
                     <div class="col-lg">
                         <a href="badminton.php" style="text-decoration: none;">
-                            <img src="../../public/images/sports/Ellipse%209.png" alt="" class="sports">
+                            <img src="../../public/images/sports/ma_logo.png" alt="" class="sports">
                             <span class="d-block w-100 fst-italic" style="font-size: 30px;">Martial Arts</span>
                         </a>
                     </div>
