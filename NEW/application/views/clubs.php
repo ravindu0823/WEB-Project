@@ -2,6 +2,7 @@
 <?php include './layout/navbar.php' ?>
 <div class="container-fluid pt-5 pb-5"
      style="background: url('../../public/images/sports/Layer 1.png') no-repeat; background-size: cover;">
+
     <div class="row">
         <div class="col-lg-12">
             <div class="row" style="text-align: center">
