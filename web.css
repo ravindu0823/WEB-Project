@@ -112,10 +112,76 @@ html {
     text-align: center;
   }
 
+/* ----------------------1--------------------- */
 
-  .bg-modal{
+  .bg-modal1{
     width: 100%;
-    height: 150%;
+    height: 160%;
+    background-color: rgb(0, 0, 0,0.7);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+  }
+/* ----------------------2--------------------- */
+  .bg-modal2{
+    width: 100%;
+    height: 160%;
+    background-color: rgb(0, 0, 0,0.7);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+  }
+/* ----------------------3--------------------- */
+  .bg-modal3{
+    width: 100%;
+    height: 160%;
+    background-color: rgb(0, 0, 0,0.7);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+  }
+/* -----------------------4-------------------- */
+  .bg-modal4{
+    width: 100%;
+    height: 160%;
+    background-color: rgb(0, 0, 0,0.7);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+  }
+/* ----------------------5-------------------- */
+  .bg-modal5{
+    width: 100%;
+    height: 160%;
+    background-color: rgb(0, 0, 0,0.7);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+  }
+/* -------------------------6------------------ */
+  .bg-modal6{
+    width: 100%;
+    height: 160%;
     background-color: rgb(0, 0, 0,0.7);
     position: absolute;
     top: 0;
@@ -126,8 +192,11 @@ html {
     display: none;
   }
 
+  /* -------------------------------------------- */
 
-  .model-content{
+
+
+  .model-content1{
     width: 500px;
     height: 300px;
     background-color: white;
@@ -135,9 +204,73 @@ html {
     text-align: center;
     padding: 5px;
     position: relative;
-    margin-top: 28%;
-    
+    margin-top: 26%; 
   }
+  /* ---------------------2-------------------- */
+
+  .model-content2{
+    width: 500px;
+    height: 300px;
+    background-color: white;
+    border-radius: 4px;
+    text-align: center;
+    padding: 5px;
+    position: relative;
+    margin-top: 26%; 
+  }
+  /* --------------------3--------------------- */
+
+  .model-content3{
+    width: 500px;
+    height: 300px;
+    background-color: white;
+    border-radius: 4px;
+    text-align: center;
+    padding: 5px;
+    position: relative;
+    margin-top: 26%; 
+  }
+  /* ---------------------4-------------------- */
+
+  .model-content4{
+    width: 500px;
+    height: 300px;
+    background-color: white;
+    border-radius: 4px;
+    text-align: center;
+    padding: 5px;
+    position: relative;
+    margin-top: 26%; 
+  }
+  /* ----------------------5------------------- */
+
+  .model-content5{
+    width: 500px;
+    height: 300px;
+    background-color: white;
+    border-radius: 4px;
+    text-align: center;
+    padding: 5px;
+    position: relative;
+    margin-top: 26%; 
+  }
+
+  /* ----------------------6------------------- */
+
+  .model-content6{
+    width: 500px;
+    height: 300px;
+    background-color: white;
+    border-radius: 4px;
+    text-align: center;
+    padding: 5px;
+    position: relative;
+    margin-top: 26%; 
+  }
+
+ 
+
+/* ---------------------1-------------------- */
 
   .close{
     position: absolute;
@@ -147,6 +280,67 @@ html {
     transform: rotate(45deg);
     cursor: pointer;
   }
+  /* --------------------2--------------------- */
+
+  .closebtn2{
+    position: absolute;
+    top: 0;    
+    right: 14px;
+    font-size: 42px;
+    transform: rotate(45deg);
+    cursor: pointer;
+  }
+  /* ---------------------3-------------------- */
+
+  .closebtn3{
+    position: absolute;
+    top: 0;    
+    right: 14px;
+    font-size: 42px;
+    transform: rotate(45deg);
+    cursor: pointer;
+  }
+  /* ---------------------4-------------------- */
+
+  .closebtn4{
+    position: absolute;
+    top: 0;    
+    right: 14px;
+    font-size: 42px;
+    transform: rotate(45deg);
+    cursor: pointer;
+  }
+  /* ----------------------5------------------- */
+
+  .closebtn5{
+    position: absolute;
+    top: 0;    
+    right: 14px;
+    font-size: 42px;
+    transform: rotate(45deg);
+    cursor: pointer;
+  }
+  /* ---------------------6-------------------- */
+
+  .closebtn6{
+    position: absolute;
+    top: 0;    
+    right: 14px;
+    font-size: 42px;
+    transform: rotate(45deg);
+    cursor: pointer;
+  }
+  /* ------------------------------------------ */
+  /* ------------------------------------------ */
+
+  .img1{
+    width: 150px;
+    height: 150px;
+    margin-right: 120px;
+    margin-top: 10px;
+
+  }
+
 
 
   
