@@ -1,0 +1,8 @@
+body {
+    background-color: yellow;
+}
+
+.button:hover {
+    color: white;
+    background-color: green;
+}
