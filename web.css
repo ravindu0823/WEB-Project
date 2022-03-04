@@ -41,7 +41,8 @@ html {
 }
 
 .title {
-  color: rgb(253, 253, 253);
+  color: rgb(0, 0, 0);
+  background-color: white;
 }
 
 .button {
@@ -57,7 +58,8 @@ html {
 }
 
 .button:hover {
-  background-color: #555;
+  background-color: rgb(41, 204, 41);
+  transform: scale(1.10);
 }
 
 @media screen and (max-width: 650px) {
@@ -334,8 +336,8 @@ html {
   /* ------------------------------------------ */
 
   .img1{
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     margin-right: 120px;
     margin-top: 10px;
 
