@@ -7,7 +7,7 @@ background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
                 style="color: #02CD22;">SPORTS</span></span>
 </div>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
         <a class="navbar-brand" href="#"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
