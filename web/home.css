@@ -1,0 +1,54 @@
+.round {
+    border-radius: 50%;
+    width: 30%;
+    min-width: 30%;
+    /*height: auto;*/
+    border: 3px solid #73AD21;
+}
+
+.round1 {
+    /*position: relative;*/
+    left: 30px;
+    top: 30px;
+    width: 60%;
+    height: auto;
+}
+
+.sports {
+    width: 100%;
+}
+
+.footer {
+    background-color: #1B579F;
+    color: white;
+    padding: 10px;
+}
+
+
+
+.font {
+    font-family: rozha;
+    font-size: 200px;
+    color: #007BFF;
+}
+
+
+
+.button {
+    background-color: #3AB54A;
+    color: white;
+    border-color: #3AB54A;
+    border-radius: 80px;
+    font-size: 24px;
+    padding: 10px 30px;
+    font-family: "roboto slab";
+}
+
+.button1 {
+    background-color: #545E69;
+    color: white;
+    border-radius: 80px;
+    font-size: 24px;
+    padding: 10px 30px;
+    font-family: "roboto slab";
+}
