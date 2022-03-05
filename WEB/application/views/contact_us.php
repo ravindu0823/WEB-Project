@@ -40,8 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <div class="container-fluid"
-     style="background: url('../../public/images/contact_us.jpg') no-repeat; background-size: cover;">
-    <div class="container rounded-3 p-3 pt-1 mb-3 text-light" style="background-color: rgba(0, 0, 0, 0.3)">
+     style="/*background: url('../../public/images/contact_us.jpg') no-repeat; background-size: cover;*/background-color: #F0F0F0">
+    <div class="container rounded-3 p-3 pt-1 mb-3">
         <section class="mb-4">
 
             <!--Section heading-->

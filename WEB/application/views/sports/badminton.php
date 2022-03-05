@@ -15,28 +15,28 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="../../../public/images/sports/badminton/1.jpg" class="d-block w-100 rounded-3" alt="...">
+                    <img src="../../../public/images/sports/badminton/2.jpeg" class="d-block w-100 rounded-3" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="../../../public/images/sports/badminton/2.jpg" class="d-block w-100 rounded-3" alt="...">
+                    <img src="../../../public/images/sports/badminton/1.jpeg" class="d-block w-100 rounded-3" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="../../../public/images/sports/badminton/3.jpg" class="d-block w-100 rounded-3" alt="...">
+                    <img src="../../../public/images/sports/badminton/3.jpeg" class="d-block w-100 rounded-3" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="../../../public/images/sports/badminton/4.jpg" class="d-block w-100 rounded-3" alt="...">
+                    <img src="../../../public/images/sports/badminton/4.jpeg" class="d-block w-100 rounded-3" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="../../../public/images/sports/badminton/5.jpg" class="d-block w-100 rounded-3" alt="...">
+                    <img src="../../../public/images/sports/badminton/5.jpeg" class="d-block w-100 rounded-3" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="../../../public/images/sports/badminton/6.jpg" class="d-block w-100 rounded-3" alt="...">
+                    <img src="../../../public/images/sports/badminton/6.jpeg" class="d-block w-100 rounded-3" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="../../../public/images/sports/badminton/7.jpg" class="d-block w-100 rounded-3" alt="...">
+                    <img src="../../../public/images/sports/badminton/7.jpeg" class="d-block w-100 rounded-3" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="../../../public/images/sports/badminton/8.jpg" class="d-block w-100 rounded-3" alt="...">
+                    <img src="../../../public/images/sports/badminton/8.jpeg" class="d-block w-100 rounded-3" alt="...">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

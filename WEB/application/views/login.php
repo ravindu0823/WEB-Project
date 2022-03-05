@@ -12,7 +12,7 @@
                     </div>
                     <div class="col-lg-6 reg-form mt-lg-5">
 
-                        <form name="login" id="login" method="#" action="https://www.google.com">
+                        <form name="login" id="login" method="post" action="login.php">
 
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content rounded-5 shadow">
@@ -24,7 +24,7 @@
                                             <form>
                                                 <div class="form-floating mb-3">
                                                     <input type="email" class="form-control rounded-4" id="floatingInput"
-                                                           placeholder="name@example.com">
+                                                           placeholder="name@example.com" autofocus>
                                                     <label for="floatingInput">Student id</label>
                                                 </div>
                                                 <div class="form-floating mb-3">
