@@ -61,10 +61,13 @@ background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
                 </li>-->
             </ul>
             <a href="../login.php" class="d-flex nav-item mx-2" style="text-decoration: none;">
-                <button class="btn btn-danger">Login</button>
+                <button class="btn btn-success">Login</button>
             </a>
             <a href="../register.php" class="d-flex nav-item" style="text-decoration: none;">
                 <button class="btn btn-success">Sign Up</button>
+            </a>
+            <a href="../logout.php" class="d-flex nav-item mx-2" style="text-decoration: none;">
+                <button class="btn btn-danger">Logout</button>
             </a>
         </div>
     </div>

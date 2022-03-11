@@ -1,6 +1,54 @@
 <?php include 'layout/header.php' ?>
 <?php include 'layout/navbar.php' ?>
 
+<?php
+session_start();
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    if (isset($_SESSION['username'])) {
+        $server = 'localhost';
+        $username = 'root';
+        $pass = '';
+        $db = 'nsbm';
+
+        $ID = $_SESSION['username'];
+
+        // Create DB connection
+        $conn = new mysqli($server, $username, $pass, $db);
+
+        // Check Connection
+        /*if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        } else {
+            echo "Connection Successful <br>";
+        }*/
+
+        $sql = "INSERT INTO rugby SELECT student_id, name, age, faculty, batch, email, phone, address FROM students WHERE student_id = $ID";
+
+        $check = "SELECT * FROM rugby WHERE student_id = \"$ID\"";
+
+        $rs = mysqli_query($conn, $check);
+
+        /*if ($rs->num_rows > 0) {
+            echo "Already in";
+        } else if (mysqli_query($conn, $sql)) {
+            echo 'Done';
+        } else {
+            echo 'Failed';
+        }*/
+    } else {
+        header('Location: ../login.php');
+    }
+
+
+
+
+}
+
+
+?>
+
     <div style="background-color: #F0F0F0">
         <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-indicators">
@@ -83,9 +131,25 @@
                 It requires a lot of determination and passion and luckily the mighty Greens of NSBM has what it takes to shine bright at the end of the day.
             </div>
 
-            <div class="pt-5">
-                <button type="button" class="btn btn-lg btn-primary w-100">Join NSBM Rugby Club</button>
-            </div>
+            <form name="rugby" method="post" action="rugby.php">
+                <div class="pt-5">
+                    <button type="submit" class="btn btn-lg btn-primary w-100">Join NSBM Rugby Club</button>
+                </div>
+            </form>
+
+            <?php
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                if ($rs->num_rows > 0) {
+                    echo '<div class="alert alert-primary mt-4 text-center" role="alert">
+                    You are already a member of NSBM Rugby Club
+                </div>';
+                } else if (mysqli_query($conn, $sql)) {
+                    echo '<div class="alert alert-success mt-4 text-center" role="alert">
+                    You are successfully added to the NSBM Rugby Club
+                </div>';
+                }
+            }
+            ?>
         </div>
     </div>
 

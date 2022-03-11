@@ -8,6 +8,7 @@
 
     <!-- Bootstrap -->
     <link href="../../../public/css/bootstrap.css" rel="stylesheet">
+    <link href="../../../public/css/sidebars.css" rel="stylesheet">
     <script src="../../../public/js/bootstrap.js" defer></script>
 
     <link href="../../../public/css/common.css" rel="stylesheet">

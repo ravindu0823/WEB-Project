@@ -5,15 +5,15 @@
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    /*$server = 'localhost';
+    $server = 'localhost';
     $username = 'root';
     $pass = '';
-    $db = 'nsbm';*/
+    $db = 'nsbm';
 
-    $server = 'localhost';
+    /*$server = 'localhost';
     $username = 'u644581451_ravindu';
     $pass = 'ravinduD1234';
-    $db = 'u644581451_ravindu';
+    $db = 'u644581451_ravindu';*/
 
     // PHP form validation
     $student_id = $_POST['student_id'];
