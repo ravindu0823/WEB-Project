@@ -1,52 +1,58 @@
-<?php include 'layout/header.php' ?>
-<?php include 'layout/navbar.php' ?>
+<?php include '../layout/header.php' ?>
+<?php include '../layout/navbar.php' ?>
 
 <?php
-session_start();
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    unset($_SESSION['form_validation']['errors']);
+    unset($_SESSION['form_validation']['success']);
+    $errors = [];
+    $messages = [];
 
-    if (isset($_SESSION['username'])) {
-        $server = 'localhost';
-        $username = 'root';
-        $pass = '';
-        $db = 'nsbm';
-
-        $ID = $_SESSION['username'];
-
+    // Check if user is logged in
+    if (isset($_SESSION['logged_in'])) {
         // Create DB connection
-        $conn = new mysqli($server, $username, $pass, $db);
+        $conn = new mysqli(REMOTE_HOST, REMOTE_USERNAME, REMOTE_PASSWORD, REMOTE_DATABASE);
 
-        // Check Connection
-        /*if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
+        // Check connection
+        if (mysqli_connect_error()) {
+            error_log(mysqli_connect_error());
+            array_push($errors, 'DB connection error! Please contact the admin');
+            $_SESSION['form_validation']['errors'] = $errors;
         } else {
-            echo "Connection Successful <br>";
-        }*/
+            // Get user data
+            $id = $_SESSION['user_data']['id'];
+            $student_id = $_SESSION['user_data']['student_id'];
 
-        $sql = "INSERT INTO netball SELECT student_id, name, age, faculty, batch, email, phone, address FROM students WHERE student_id = $ID";
+            $sql = 'INSERT INTO `netball` (`student_id`) VALUES ("' . $id . '")';
 
-        $check = "SELECT * FROM netball WHERE student_id = \"$ID\"";
+            if ($conn->query($sql) === true) {
+                // Get all enrolments of student
+                $result = get_student_enrolments($student_id);
 
-        $rs = mysqli_query($conn, $check);
+                if ($result) {
+                    // Add all enrolments to the session
+                    $_SESSION['user_data']['enrolments'] = $result;
+                }
 
-        /*if ($rs->num_rows > 0) {
-            echo "Already in";
-        } else if (mysqli_query($conn, $sql)) {
-            echo 'Done';
-        } else {
-            echo 'Failed';
-        }*/
+                array_push($messages, 'You are successfully added to the NSBM Netball Club');
+                $_SESSION['form_validation']['success'] = $messages;
+            } else {
+                error_log($sql . ': ' . $conn->error);
+                array_push($errors, 'Enrolment unsuccessful! Please contact the admin');
+                $_SESSION['form_validation']['errors'] = $errors;
+            }
+
+            header('Location: netball.php');
+        }
+
+        $conn->close();
     } else {
+        // Redirect the user to login page
+        array_push($errors, 'Please login first!');
+        $_SESSION['form_validation']['errors'] = $errors;
         header('Location: ../login.php');
     }
-
-
-
-
 }
-
-
 ?>
 
     <div style="background-color: #F0F0F0">
@@ -98,25 +104,36 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 NSBM netball club is operating with two teams Team A and B
             </div>
 
-            <form name="netball" action="netball.php" method="post">
-                <div class="pt-5">
-                    <button type="submit" class="btn btn-lg btn-primary w-100">Join NSBM Netball Club</button>
-                </div>
-            </form>
-
             <?php
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                if ($rs->num_rows > 0) {
-                    echo '<div class="alert alert-primary mt-4 text-center" role="alert">
-                    You are already a member of NSBM Netball Club
-                </div>';
-                } else if (mysqli_query($conn, $sql)) {
-                    echo '<div class="alert alert-success mt-4 text-center" role="alert">
-                    You are successfully added to the NSBM Netball Club
-                </div>';
-                }
-            }
-            ?>
+            // Check if user has enrollments
+            if (isset($_SESSION['user_data']['enrolments'])) {
+                // Get all user enrolments
+                $enrolments = $_SESSION['user_data']['enrolments'];
+
+                // Check if user is enrolled to the club
+                if (array_key_exists('netball', $enrolments)) {
+                    if ($enrolments['netball'] == 1) { ?>
+                        <div class="alert alert-primary mt-4 text-center" role="alert">
+                            You are already a member of NSBM Netball Club
+                        </div>
+                    <?php } else { ?>
+                        <form action="netball.php" method="post">
+                            <div class="pt-5">
+                                <button type="submit" class="btn btn-lg btn-primary w-100">Join NSBM Netball Club
+                                </button>
+                            </div>
+                        </form>
+                    <?php }
+                } else { ?>
+                    <form action="netball.php" method="post">
+                        <div class="pt-5">
+                            <button type="submit" class="btn btn-lg btn-primary w-100">Join NSBM Netball Club</button>
+                        </div>
+                    </form>
+                <?php }
+            } ?>
+
+            <?php include '../layout/alerts.php'; ?>
         </div>
     </div>
 
