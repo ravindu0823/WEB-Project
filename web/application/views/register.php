@@ -2,9 +2,12 @@
 <?php include './layout/navbar.php' ?>
 
 <?php
-session_start();
-unset($_SESSION['form_validation']['errors']);
-unset($_SESSION['form_validation']['success']);
+// Redirect to home page if user already logged in
+if (isset($_SESSION['logged_in'])) {
+    if ($_SESSION['logged_in'] == 1) {
+        header('Location: home.php');
+    }
+}
 ?>
 
 <?php
@@ -12,6 +15,8 @@ unset($_SESSION['form_validation']['success']);
  * Controller
  */
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    unset($_SESSION['form_validation']['errors']);
+    unset($_SESSION['form_validation']['success']);
     $errors = [];
     $messages = [];
 
@@ -51,9 +56,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         array_push($errors, 'Enter a password');
     }
 
-    if ($password < 6) {
-        array_push($errors, 'The password must contain at least 6 characters');
-    }
+//    if ($password < 6) {
+//        array_push($errors, 'The password must contain at least 6 characters');
+//    }
 
     if (!$confirm_password) {
         array_push($errors, 'Please confirm your password');
@@ -100,13 +105,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Validation successful
         unset($_SESSION['form_validation']['errors']);
 
-        $server = 'localhost';
-        $username = 'u644581451_ravindu';
-        $pass = 'ravinduD1234';
-        $db = 'u644581451_ravindu';
-
         // Create DB connection
-        $conn = new mysqli($server, $username, $pass, $db);
+        $conn = new mysqli(REMOTE_HOST, REMOTE_USERNAME, REMOTE_PASSWORD, REMOTE_DATABASE);
 
         // Check connection
         if (mysqli_connect_error()) {
@@ -114,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             array_push($errors, 'DB connection error! Please contact the admin');
             $_SESSION['form_validation']['errors'] = $errors;
         } else {
-            $sql = 'INSERT INTO students (student_id, name, age, password, faculty, batch, email, phone, address) VALUES ("' . $student_id . '", "' . $name . '", "' . $age . '", "' . $password . '", "' . $faculty . '", "' . $batch . '", "' . $email . '", "' . $phone . '", "' . $address . '")';
+            $sql = 'INSERT INTO `students` (`student_id`, `name`, `age`, `password`, `faculty`, `batch`, `email`, `phone`, `address`) VALUES ("' . $student_id . '", "' . $name . '", "' . $age . '", "' . sha1($password) . '", "' . $faculty . '", "' . $batch . '", "' . $email . '", "' . $phone . '", "' . $address . '")';
 
             if ($conn->query($sql) === true) {
                 array_push($messages, 'Registration successful! Please login');
@@ -132,60 +132,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<?php
-// Form meta data
-$faculties = [
-    [
-        'id' => '1',
-        'name' => 'Faculty of Business (FOB)'
-    ],
-    [
-        'id' => '2',
-        'name' => 'Faculty of Computing (FOC)'
-    ],
-    [
-        'id' => '3',
-        'name' => 'Faculty of Engineering (FOE)'
-    ],
-    [
-        'id' => '4',
-        'name' => 'Faculty of Science (FOS)'
-    ]
-];
-
-$batches = [
-    [
-        'id' => '20.1',
-        'name' => '20.1'
-    ],
-
-    [
-        'id' => '20.2',
-        'name' => '20.2'
-    ],
-
-    [
-        'id' => '20.3',
-        'name' => '20.3'
-    ],
-
-    [
-        'id' => '21.1',
-        'name' => '21.1'
-    ],
-
-    [
-        'id' => '21.2',
-        'name' => '21.2'
-    ],
-
-    [
-        'id' => '21.3',
-        'name' => '21.3'
-    ]
-];
-?>
-
     <div class="container-fluid pt-5"
          style="background: url('../../public/images/Rectangle 34.png') no-repeat; background-size: cover; padding-bottom: 210px">
         <div class="row">
@@ -197,21 +143,7 @@ $batches = [
                         </div>
                         <div class="col-lg-6">
 
-                            <?php if (isset($_SESSION['form_validation']['errors'])) { ?>
-                                <div class="alert bg-danger">
-                                    <?php foreach ($_SESSION['form_validation']['errors'] as $error) { ?>
-                                        <p><?php echo $error; ?></p>
-                                    <?php } ?>
-                                </div>
-                            <?php } ?>
-
-                            <?php if (isset($_SESSION['form_validation']['success'])) { ?>
-                                <div class="alert bg-success">
-                                    <?php foreach ($_SESSION['form_validation']['success'] as $success) { ?>
-                                        <p><?php echo $success; ?></p>
-                                    <?php } ?>
-                                </div>
-                            <?php } ?>
+                            <?php include './layout/alerts.php' ?>
 
                             <div class="modal-dialog">
                                 <div class="modal-content rounded-5 shadow">
@@ -274,8 +206,8 @@ $batches = [
                                                 <select name="faculty" id="faculty" class="form-control rounded-4 pt-2"
                                                         title="Faculty" required>
                                                     <option value="">Select Your Faculty</option>
-                                                    <?php for ($i = 0; $i < sizeof($faculties); $i++) { ?>
-                                                        <option value="<?php echo $faculties[$i]['id']; ?>"><?php echo $faculties[$i]['name']; ?></option>
+                                                    <?php for ($i = 0; $i < sizeof(FACULTIES); $i++) { ?>
+                                                        <option value="<?php echo FACULTIES[$i]['id']; ?>"><?php echo FACULTIES[$i]['name']; ?></option>
                                                     <?php } ?>
                                                     <label for="faculty">Faculty</label>
                                                 </select>
@@ -285,9 +217,9 @@ $batches = [
                                                 <select name="batch" id="batch" class="form-control rounded-4 pt-2"
                                                         title="Batch" required>
                                                     <option value="">Select your Batch</option>
-                                                    <?php for ($i = 0; $i < sizeof($batches); $i++) { ?>
-                                                        <option value="<?php echo $batches[$i]['id']; ?>">
-                                                            <?php echo $batches[$i]['name']; ?>
+                                                    <?php for ($i = 0; $i < sizeof(BATCHES); $i++) { ?>
+                                                        <option value="<?php echo BATCHES[$i]['id']; ?>">
+                                                            <?php echo BATCHES[$i]['name']; ?>
                                                         </option>
                                                     <?php } ?>
 
@@ -313,11 +245,10 @@ $batches = [
                                             </div>
 
                                             <div class="form-floating mb-3">
-                                                <input type="text" class="form-control rounded-4"
-                                                       id="address"
-                                                       placeholder="Home Address" aria-label="Address" required min="10"
-                                                       max="100"
-                                                       maxlength="100">
+                                                <textarea class="form-control rounded-4"
+                                                          id="address" name="address" rows="3"
+                                                          placeholder="Home Address" aria-label="Address" required maxlength="100"
+                                                          style="height:100%;"></textarea>
                                                 <label for="address">Address</label>
                                             </div>
 
@@ -339,94 +270,6 @@ $batches = [
                                     </div>
                                 </div>
                             </div>
-
-                            <!--<form name="register" id="register" method="POST" action="register.php"
-                                  onsubmit="return formValidation();">
-
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1">Student ID</span>
-                                    <input type="text" name="student_id" id="student_id" class="form-control"
-                                           placeholder="NSBM Student ID Number" aria-label="Username" min="5"
-                                           minlength="5" max="5" maxlength="5" required autofocus>
-                                </div>
-
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1">Name</span>
-                                    <input type="text" name="name" id="name" class="form-control"
-                                           placeholder="Full Name" aria-label="Name" min="5" max="100" maxlength="100"
-                                           required>
-                                </div>
-
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1">Password</span>
-                                    <input type="password" name="password" id="password" class="form-control"
-                                           placeholder="Enter a strong password" aria-label="Password" min="8" max="100"
-                                           maxlength="100"
-                                           required>
-                                </div>
-
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1">Confirm Password</span>
-                                    <input type="password" name="confirm_password" id="confirm_password"
-                                           class="form-control"
-                                           placeholder="Confirm your password" aria-label="Confirm password" min="5"
-                                           max="100" maxlength="100"
-                                           required>
-                                </div>
-
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1">Age</span>
-                                    <input type="text" name="age" id="age" class="form-control" placeholder="Age"
-                                           aria-label="Age" min="1" max="2" maxlength="2" required>
-                                </div>
-
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1">Faculty</span>
-                                    <select name="faculty" id="faculty" class="form-control" title="Faculty" required>
-                                        <option value="">Please select...</option>
-                                        <?php /*for ($i = 0; $i < sizeof($faculties); $i++) { */ ?>
-                                            <option value="<?php /*echo $faculties[$i]['id']; */ ?>"><?php /*echo $faculties[$i]['name']; */ ?></option>
-                                        <?php /*} */ ?>
-                                    </select>
-                                </div>
-
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1">Batch</span>
-                                    <select name="batch" id="batch" class="form-control" title="Batch" required>
-                                        <option value="">Please select...</option>
-                                        <?php /*for ($i = 0; $i < sizeof($batches); $i++) { */ ?>
-                                            <option value="<?php /*echo $batches[$i]['id']; */ ?>">
-                                                <?php /*echo $batches[$i]['name']; */ ?>
-                                            </option>
-                                        <?php /*} */ ?>
-                                    </select>
-                                </div>
-
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1">Email</span>
-                                    <input type="text" name="email" id="email" class="form-control"
-                                           placeholder="Student Email Address" aria-label="Recipient's username" min="5"
-                                           max="80" required>
-                                </div>
-
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1">Phone Number</span>
-                                    <input type="text" name="phone" id="phone" class="form-control"
-                                           placeholder="Phone Number" aria-label="Username" min="10" max="10"
-                                           maxlength="10">
-                                </div>
-
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1">Address</span>
-                                    <input type="text" name="address" id="address" class="form-control"
-                                           placeholder="Home Address" aria-label="Address" required min="10" max="100"
-                                           maxlength="100">
-                                </div>
-
-                                <button type="submit" class="btn btn-primary d-block w-100">Register</button>
-
-                            </form>-->
-
                         </div>
                     </div>
                 </div>
