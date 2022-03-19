@@ -1,9 +1,24 @@
 <!DOCTYPE html>
 <head>
-    <link rel="stylesheet" href="../../public/css/web.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="../../public/css/bootstrap.css" rel="stylesheet">
-    <script src="../../public/js/web.js"></script>
+    <?php
+
+    if (strpos($_SERVER['REQUEST_URI'], 'projects/web') !== false) {
+        define('BASE_URL', 'http://localhost:8012/projects/web/');
+    } else {
+        define('BASE_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/ravindu/webproject/');
+    }
+    ?>
+
+    <!-- Add icon link -->
+    <link rel="icon" href="<?php echo BASE_URL; ?>public/images/nsbm_logo_favicon.png" type="image/x-icon">
+
+    <!-- Bootstrap -->
+    <link href="<?php echo BASE_URL; ?>public/css/bootstrap.css" rel="stylesheet">
+    <link href="<?php echo BASE_URL; ?>public/css/sidebars.css" rel="stylesheet">
+    <script src="<?php echo BASE_URL; ?>public/js/bootstrap.js" defer></script>
+
+    <link href="<?php echo BASE_URL; ?>public/css/common.css" rel="stylesheet">
+
     <title><?php echo 'NSBM sports'; ?></title>
 
     <!-- Add icon link -->
