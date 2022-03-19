@@ -1,0 +1,40 @@
+[11-Mar-2022 11:39:58 Asia/Colombo] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/u644581451/domains/codingground.esy.es/public_html/ravindu/webproject/application/views/admin/athletic.php on line 202
+[11-Mar-2022 11:39:58 Asia/Colombo] PHP Fatal error:  Uncaught Error: Call to a member function query() on bool in /home/u644581451/domains/codingground.esy.es/public_html/ravindu/webproject/application/views/admin/athletic.php:204
+Stack trace:
+#0 {main}
+  thrown in /home/u644581451/domains/codingground.esy.es/public_html/ravindu/webproject/application/views/admin/athletic.php on line 204
+[11-Mar-2022 11:40:01 Asia/Colombo] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/u644581451/domains/codingground.esy.es/public_html/ravindu/webproject/application/views/admin/archery.php on line 202
+[11-Mar-2022 11:40:01 Asia/Colombo] PHP Fatal error:  Uncaught Error: Call to a member function query() on bool in /home/u644581451/domains/codingground.esy.es/public_html/ravindu/webproject/application/views/admin/archery.php:204
+Stack trace:
+#0 {main}
+  thrown in /home/u644581451/domains/codingground.esy.es/public_html/ravindu/webproject/application/views/admin/archery.php on line 204
+[11-Mar-2022 13:16:04 Asia/Colombo] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/u644581451/domains/codingground.esy.es/public_html/ravindu/webproject/application/views/admin/volleyball.php on line 202
+[11-Mar-2022 13:16:04 Asia/Colombo] PHP Fatal error:  Uncaught Error: Call to a member function query() on bool in /home/u644581451/domains/codingground.esy.es/public_html/ravindu/webproject/application/views/admin/volleyball.php:204
+Stack trace:
+#0 {main}
+  thrown in /home/u644581451/domains/codingground.esy.es/public_html/ravindu/webproject/application/views/admin/volleyball.php on line 204
+[11-Mar-2022 13:16:08 Asia/Colombo] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/u644581451/domains/codingground.esy.es/public_html/ravindu/webproject/application/views/admin/athletic.php on line 202
+[11-Mar-2022 13:16:08 Asia/Colombo] PHP Fatal error:  Uncaught Error: Call to a member function query() on bool in /home/u644581451/domains/codingground.esy.es/public_html/ravindu/webproject/application/views/admin/athletic.php:204
+Stack trace:
+#0 {main}
+  thrown in /home/u644581451/domains/codingground.esy.es/public_html/ravindu/webproject/application/views/admin/athletic.php on line 204
+[11-Mar-2022 13:16:10 Asia/Colombo] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/u644581451/domains/codingground.esy.es/public_html/ravindu/webproject/application/views/admin/chess.php on line 202
+[11-Mar-2022 13:16:10 Asia/Colombo] PHP Fatal error:  Uncaught Error: Call to a member function query() on bool in /home/u644581451/domains/codingground.esy.es/public_html/ravindu/webproject/application/views/admin/chess.php:204
+Stack trace:
+#0 {main}
+  thrown in /home/u644581451/domains/codingground.esy.es/public_html/ravindu/webproject/application/views/admin/chess.php on line 204
+[11-Mar-2022 13:16:10 Asia/Colombo] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/u644581451/domains/codingground.esy.es/public_html/ravindu/webproject/application/views/admin/netball.php on line 202
+[11-Mar-2022 13:16:10 Asia/Colombo] PHP Fatal error:  Uncaught Error: Call to a member function query() on bool in /home/u644581451/domains/codingground.esy.es/public_html/ravindu/webproject/application/views/admin/netball.php:204
+Stack trace:
+#0 {main}
+  thrown in /home/u644581451/domains/codingground.esy.es/public_html/ravindu/webproject/application/views/admin/netball.php on line 204
+[11-Mar-2022 13:16:11 Asia/Colombo] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/u644581451/domains/codingground.esy.es/public_html/ravindu/webproject/application/views/admin/basketball.php on line 202
+[11-Mar-2022 13:16:11 Asia/Colombo] PHP Fatal error:  Uncaught Error: Call to a member function query() on bool in /home/u644581451/domains/codingground.esy.es/public_html/ravindu/webproject/application/views/admin/basketball.php:204
+Stack trace:
+#0 {main}
+  thrown in /home/u644581451/domains/codingground.esy.es/public_html/ravindu/webproject/application/views/admin/basketball.php on line 204
+[11-Mar-2022 13:16:12 Asia/Colombo] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/u644581451/domains/codingground.esy.es/public_html/ravindu/webproject/application/views/admin/athletic.php on line 202
+[11-Mar-2022 13:16:12 Asia/Colombo] PHP Fatal error:  Uncaught Error: Call to a member function query() on bool in /home/u644581451/domains/codingground.esy.es/public_html/ravindu/webproject/application/views/admin/athletic.php:204
+Stack trace:
+#0 {main}
+  thrown in /home/u644581451/domains/codingground.esy.es/public_html/ravindu/webproject/application/views/admin/athletic.php on line 204
